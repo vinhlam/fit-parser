@@ -1,3 +1,6 @@
+Modified from https://github.com/jimmykane/fit-parser to add ability
+to recover fit files from Wahoo fit files which have been accidentally paused.
+
 # fit-file-parser
 
 > Parse your .FIT files easily, directly from JS.
@@ -73,6 +76,9 @@ Allowed properties :
   - `false`: Stops if an error occurs
 - `elapsedRecordField`: Boolean
   - `true`: Includes `elapsed_time`, containing the elapsed time in seconds since the first record, and `timer_time`, containing the time shown on the device, inside each `record` field
+  - `false` (**default**)
+- `recoverWahooPaused`: Boolean
+  - `true`: Recovers records from a wahoo fit file what were paused.
   - `false` (**default**)
 
 ### fitParser.parse(Buffer _file_, Function _callback_)
