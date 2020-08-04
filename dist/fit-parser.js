@@ -22,6 +22,7 @@ var FitParser = function () {
       lengthUnit: options.lengthUnit || 'm',
       temperatureUnit: options.temperatureUnit || 'celsius',
       elapsedRecordField: options.elapsedRecordField || false,
+      recoverWahooPaused: options.recoverWahooPaused || false,
       mode: options.mode || 'list'
     };
   }
@@ -166,6 +167,10 @@ var FitParser = function () {
           case 'hrv':
             hrv.push(message);
             break;
+          case 'wahoo_paused_record':
+            if (!this.options.recoverWahooPaused) {
+              break;
+            }
           case 'record':
             if (!startDate) {
               startDate = message.timestamp;
